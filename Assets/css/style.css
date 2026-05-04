@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+/* Fade animation for text */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Image 1 fades out, Image 2 fades in */
+@keyframes swapFade1 {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes swapFade2 {
+  0%, 45% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+.swap-img-1 {
+  animation: swapFade1 6s infinite ease-in-out;
+}
+
+.swap-img-2 {
+  animation: swapFade2 6s infinite ease-in-out;
+}
+
+.flip-container {
+  perspective: 1000px;
+}
+
+.flip-image {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-container:hover .flip-image {
+  transform: rotateY(180deg);
+}
+
+/* Rotating Flower */
+.flower-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spinFlower 12s linear infinite;
+}
+
+.flower-bg::before,
+.flower-bg::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border: 6px solid #ff8ab8;
+  border-radius: 50%;
+  top: 10%;
+  left: 10%;
+}
+
+.flower-bg::after {
+  transform: rotate(45deg);
+}
+
+@keyframes spinFlower {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotate-flower {
+  animation: spinFlower 12s linear infinite;
+}
+
+
+/* Label Animation */
+.label-box {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.7s ease;
+}
+
+.label-box.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Join inner circle animation */
+.glitter-bg {
+  background: linear-gradient(135deg, #ff7eb8, #ff4fa3, #ff7eb8);
+  background-size: 300% 300%;
+  animation: shimmer 6s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer movement */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glitter overlay */
+.glitter-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.6) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
+  background-size: 80px 80px, 50px 50px;
+  animation: sparkle 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Sparkle movement */
+@keyframes sparkle {
+  0% { transform: translate(0,0); opacity: 0.8; }
+  50% { transform: translate(20px, -20px); opacity: 1; }
+  100% { transform: translate(0,0); opacity: 0.8; }
+}
+
+/* flash sale */
+/* Wrapper positions everything */
+.semi-circle-banner {
+  position: absolute;
+  width: 620px;
+  height: 310px;
+  background: radial-gradient(circle at top, #ffd0e6 0, #ff7eb8 40%, #ff4fa3 100%);
+  border-radius: 620px 620px 0 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+/* Sparkles on semi-circle */
+.semi-circle-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.7) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px;
+  animation: sparkle 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Girl on left */
+.banner-girl {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 210px;
+  height: 250px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Products on right */
+.banner-products {
+  position: absolute;
+  bottom: 2;
+  right: 15%;
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Center content on top of semi-circle */
+.banner-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Flash sale pill sliding */
+.flash-sale-pill {
+  display: inline-block;
+  background: #ff4fa3;
+  color: #fff;
+  padding: 8px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  animation: slideLR 3s ease-in-out infinite;
+}
+
+/* Title */
+.banner-title {
+  margin-top: 18px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #5b1230;
+}
+
+/* Button */
+.banner-btn {
+  margin-top: 18px;
+  background: #ff4fa3;
+  color: #fff;
+  border: none;
+  padding: 10px 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes sparkle {
+  0% { transform: translate(0,0); opacity: 0.8; }
+  50% { transform: translate(20px,-20px); opacity: 1; }
+  100% { transform: translate(0,0); opacity: 0.8; }
+}
+
+@keyframes slideLR {
+  0% { transform: translateX(-18px); }
+  50% { transform: translateX(18px); }
+  100% { transform: translateX(-18px); }
+}
+
+/* Smooth floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+
